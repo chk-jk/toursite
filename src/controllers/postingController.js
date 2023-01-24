@@ -11,7 +11,7 @@ export const watch = async (req, res) => {
   if (!posting) {
     return res.render("404", { pageTitle: "posting not found." });
   }
-  return res.render("", { pageTitle: posting.title, posting });
+  return res.render("watch", { pageTitle: posting.title, posting });
 };
 
 export const getEdit = async (req, res) => {

@@ -1,5 +1,5 @@
 extends base.pug
-include mixins/video
+include mixins/posting
 
 block content
     form(method="GET")
@@ -7,5 +7,5 @@ block content
         input(type="submit", value="Search now")
 
     div
-        each video in videos 
-            +video(video)
+        each posting in posts 
+            +posting(posting)
