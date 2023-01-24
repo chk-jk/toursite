@@ -2,8 +2,8 @@ extends base
 
 block content
     div
-        p=video.description
-        small=video.createdAt
-    a(href=`${video.id}/edit`) Edit Video &rarr;
+        p=posting.description
+        small=posting.createdAt
+    a(href=`${posting.id}/edit`) Edit Posting &rarr;
     br
-    a(href=`${video.id}/delete`) Delete Video &rarr;
+    a(href=`${posting.id}/delete`) Delete Posting &rarr;

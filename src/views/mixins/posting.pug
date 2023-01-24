@@ -1,0 +1,10 @@
+mixin posting(posting)
+    div
+        h4
+            a(href=`/posts/${posting.id}`)=posting.title
+        p=posting.description
+        ul
+            each hashtag in posting.hashtags
+                li=hashtag
+        small=posting.createdAt
+        hr
