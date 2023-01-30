@@ -9,7 +9,7 @@ export const watch = async (req, res) => {
   const { id } = req.params;
   const posting = await Posting.findById(id);
   if (!posting) {
-    return res.render("404", { pageTitle: "posting not found." });
+    return res.status(404).render("404", { pageTitle: "posting not found." });
   }
   return res.render("watch", { pageTitle: posting.title, posting });
 };
@@ -28,7 +28,7 @@ export const postEdit = async (req, res) => {
   const { title, description, hashtags } = req.body;
   const posting = await Posting.exists({ _id: id });
   if (!posting) {
-    return res.render("404", { pageTitle: "Posts not found." });
+    return res.status(404).render("404", { pageTitle: "Posts not found." });
   }
   await Posting.findByIdAndUpdate(id, {
     title,
@@ -52,7 +52,7 @@ export const postUpload = async (req, res) => {
     });
     return res.redirect("/");
   } catch (error) {
-    return res.render("upload", {
+    return res.status(400).render("upload", {
       pageTitle: "Upload Posting",
       errorMessage: error._message,
     });

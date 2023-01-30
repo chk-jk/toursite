@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// 게시글 스키마 구성
 const postingSchema = new mongoose.Schema({
   title: { type: String, required: true, trim: true, maxLength: 80 },
   description: { type: String, required: true, trim: true, minLength: 20 },
@@ -11,6 +12,7 @@ const postingSchema = new mongoose.Schema({
   },
 });
 
+// 해시태그 자동 split
 postingSchema.static("formatHashtags", function (hashtags) {
   return hashtags
     .split(",")
